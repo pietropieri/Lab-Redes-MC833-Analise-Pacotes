@@ -15,7 +15,7 @@ def analyze_pcap(file):
     # Filtrando apenas pacotes ICMP de tipo "Request"
     requests_packets = [packet for packet in packets if IP in packet and ICMP in packet and packet[ICMP].type == 8]
     
-    for packet in echo_requests:
+    for packet in requests_packets:
         if IP in packet and ICMP in packet:
             ip_src.append(packet[IP].src)
             ip_dst.append(packet[IP].dst)
